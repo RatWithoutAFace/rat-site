@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  --font: 'Domine', serif;
+  --bg-color-light: #e8e5dc;
+  --bg-color-dark: #131313;
+  --text-color-light: #333;
+  --text-color-dark: #f7f5ef;
+}
+
+body {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  line-height: 1.5;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.no-transition {
+  transition: none !important;
+}
+
+hr {
+  max-width: 900px;
+}
+
+.profile {
+  width: 130px;
+  height: 130px;
+  margin-left: auto;
+  border-radius: 50%;
+  border: 7px solid var(--text-color-light);
+  background-color: var(--text-color-light);
+  box-shadow: none;
+  outline: none;
+}
+
+body.dark-mode .profile {
+  border-color: var(--text-color-dark);
+  background-color: var(--text-color-dark);
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 25px auto 20px auto;
+  max-width: 800px;
+}
+
+.header {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--text-color-light);
+  margin-top: 50px;
+}
+
+body.dark-mode .header {
+  color: var(--text-color-dark);
+}
+
+.body-text {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 25px;
+  color: var(--text-color-light);
+  margin-top: 0px;
+}
+
+body.dark-mode .body-text {
+  color: var(--text-color-dark);
+}
+
+.body-text p {
+  margin-top: 5px;
+}
+
+.heading {
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 40px;
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 70px;
+	height: 35px;
+	background: #ffe32a;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 25px;
+	height: 25px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: #141f9a;
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 24.5px;
+}
+
+.container > *, .body-text > *, .profile, .header, hr {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Adjust the duration here */
+}
+
+.container > *.loaded, .body-text > *.loaded, .profile.loaded, .header.loaded, hr.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+a {
+  color: var(--text-color-light);
+  transition: color 0.3s;
+}
+
+body.dark-mode a {
+  color: var(--text-color-dark);
+}
